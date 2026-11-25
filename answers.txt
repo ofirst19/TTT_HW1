@@ -1,0 +1,43 @@
+# HW1 answers (236767). One line per key: KEY: text. Lines that start with # are comments.
+# Part B, for each planner P1 ... P8:
+#   P<k>.principle  the principle the planner violates, in one sentence;
+#   P<k>.guarantee  its guarantee line, in one sentence: a natural class of instances for your
+#                   robot, described by a property of the instance alone, on which the planner
+#                   is correct; your own counterexample must lie outside it.
+#   Write - for both keys of a planner you judged correct. The principle and the guarantee
+#   line of a planner earn 0 if you submit no counterexample file for it, whatever they say;
+#   a file counterexamples/P<k>.json counts even if check_ce.py does not confirm it (it must
+#   still follow the instance rules). A guarantee line whose class contains any instance on
+#   which the planner is wrong earns 0.
+# Part C: T1.planner names the planner of your proof T1 (T1.planner: P<k>, with <k> one of
+#   1 ... 8): a planner you judged flawed whose counterexample file has two or more obstacles.
+#   The proof goes into report.pdf. Write T1.planner: - if you skip T1 (it then earns 0); the
+#   placeholder P? below fails check_submission.py.
+# Each answer fits on its line and has at most 400 characters; every key appears exactly
+# once. A blank answer (- or nothing) earns 0. After the deadline, two planners are drawn at
+# random among the flawed planners for which you submitted a counterexample file and wrote at
+# least one non-blank answer; the TA grades both answers of each drawn planner (a blank one as
+# 0). Each other non-blank principle and guarantee line of these planners earns its points
+# times the fraction of the possible points that the drawn answers earned together (see
+# README.md, Points and grading). The total is rounded half up; a full regrade, on request,
+# can raise or lower it. check_submission.py checks this file; a zip that fails it is not
+# graded (0 points).
+
+P1.principle: - For a translating robot, collision-free configurations must be determined by expanding each obstacle using the reflected robot, rather than the original robot.
+P1.guarantee: -The planner is correct whenever the straight segment from start to goal does not pass through the interior of any true or incorrectly computed C-obstacle.
+P2.principle: -
+P2.guarantee: -
+P3.principle: - A visibility graph must include all collision-free straight segments between relevant vertices, including segments that follow obstacle boundaries.
+P3.guarantee: - The planner is correct when straight path is collision-free and does not contain any segment that lies entirely along an obstacle boundary.
+P4.principle: - A visibility graph must include the intersection points of overlapping C-obstacle boundaries to guarantee a shortest path.
+P4.guarantee: - The planner is correct when the shortest path does not pass through any overlapping C-obstacles.
+P5.principle: - A visibility graph must include a direct edge between start and goal whenever the straight path is collision-free.
+P5.guarantee: - The planner is correct when the shortest path requires at least one intermediate C-obstacle vertex.
+P6.principle: -
+P6.guarantee: -
+P7.principle: - A visibility graph must reject segments that pass through the interior of a C-obstacle, even when they intersect its boundary only at vertices.
+P7.guarantee: - The planner is correct when the straight segment from start to goal has strictly positive clearance from every C-obstacle.
+P8.principle: - Overlapping C-obstacles must be combined correctly without blocking any additional free space.
+P8.guarantee: - The planner is correct when the shortest valid path does not intersect any additional area created by merging overlapping C-obstacles into their convex hull.
+
+T1.planner: P8

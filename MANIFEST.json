@@ -1,0 +1,24 @@
+{
+ "_comment": "DO NOT EDIT. SHA-256 of the original DO-NOT-EDIT files of the HW1 kit (CRLF line ends read as LF), written by the course staff. check_ce.py, HW1.py, draw.py, and check_submission.py warn when one of your files differs from it; the grader always uses the original files.",
+ "kit_version": "2.4",
+ "hash": "sha256, CRLF read as LF",
+ "files": {
+  "check_ce.py": "19222b2cfa1efe010b1082831fe6f01c65a4748dffcace27e851b17d6f657b2e",
+  "check_submission.py": "66c9741d18aa9835e074b673745a4f4fb9f1b1afe4c844e2a0021e0f4a2928a3",
+  "draw.py": "3df8cca3a7e4538dce220e9627e2ab2ce78ed2de02533e2243cce5c1df7565f6",
+  "gen_hw1.py": "554df42f5e0e84648338664ba3fcc125afd5a1c2d1ec384ee4de889ab78d4c42",
+  "hw1_io.py": "e180b6babf58b779c3f9d425675e5458e890b1c26a02ab1b6fca89fc02938dae",
+  "planners/P1.py": "d4fd64a556ffdb435fde3542d11af00b93b690bd9633fdf2bb7e1175fc5c8577",
+  "planners/P2.py": "947761c820a3fa290e810a6ad1cee0871a639dc6aa53071b4d08e900cf3c4ce4",
+  "planners/P3.py": "5e7cf546963123477ac1a08b302ef036473451ed173aadf70bccd99841dab6ab",
+  "planners/P4.py": "41556d0c25b6fe676ce7d8e523c5a0a312d02d141496c30899cff0b66a729d20",
+  "planners/P5.py": "17f11cda82739477d91b67c11dd523115525dae53d564d22e64e4e0afcb305ea",
+  "planners/P6.py": "f3e1c9a000a240c3896790c989f74ffdc23ab2442211f7ad65d9ebd276748330",
+  "planners/P7.py": "7250c198372202d2f202437917fea6c95a5d128dfa74615c8939a76e1bda3fe8",
+  "planners/P8.py": "2a0d78de704f5d8ec04939b84c0922b7cf65a354dd4e70c35a4f254221e5515e",
+  "referee/__init__.py": "6f0e3f722bce37c16627a73c47de0e4436963c6dddc3b778fce3e0bbb3f1f376",
+  "referee/geom_ref.py": "4a76e77b4fef1b2c400c489733a83cfab267cbab9aae54347e792e163ffa9a9b",
+  "referee/planner_ref.py": "795e62f807f6438b0906a503c510b2acf0be5dddf25843d877265eb9f2377fd1",
+  "referee/referee.py": "36d4d5cc75095ac01cd9f00861c78d5871962eff67d1f12d06d60bcd3cc57f79"
+ }
+}

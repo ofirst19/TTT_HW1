@@ -1,0 +1,152 @@
+% HW1 report template (236767, Winter 2026-27): Translational Motion Planning (kit 2.4).
+% The report is in English and typed in LaTeX with this template. It holds, in this order:
+% the AI-use box; one section for Part B, the eight planners, with one subsection per
+% planner, P1 to P8; and one section for Part C, the dry question T1. Part A does not go
+% into the report.
+% make_submission.py submits report.pdf, or, if there is none, report_template.pdf.
+%
+% For each planner keep ONE of its two blocks: "flawed" (verdict, figure, principle,
+% guarantee line) or "correct" (verdict), and delete the other.
+% The principles and guarantee lines are GRADED FROM answers.txt (one line per key,
+% see README.md); repeat them here so that the report reads on its own, and keep the
+% two copies identical. The proof T1 is graded from this report.
+%
+% Figures come from draw.py. In the folder of this file run, for each flawed planner,
+%   python draw.py --ids ID1 ID2 counterexamples/P<k>.json --planner P<k> --out figs/P<k>.pdf
+% or draw all of them at once with
+%   python HW1.py --ids ID1 ID2 --figs figs
+% \cefig{P<k>} includes figs/P<k>.pdf (or figs/P<k>.png) when it exists, and otherwise
+% prints a box with the command that makes it.
+\documentclass[11pt]{article}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue]{hyperref}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.4ex plus 0.3ex}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\cefig}[1]{% \cefig{P<k>}: the figure of draw.py for planner P<k>
+  \IfFileExists{figs/#1.pdf}{\includegraphics[width=\linewidth,height=8cm,keepaspectratio]{figs/#1.pdf}}{%
+  \IfFileExists{figs/#1.png}{\includegraphics[width=\linewidth,height=8cm,keepaspectratio]{figs/#1.png}}{%
+  \fbox{\parbox{0.95\linewidth}{\raggedright\footnotesize\texttt{figs/#1.pdf} not found; make it with\\[0.3ex]
+  \texttt{python draw.py -{}-ids ID1 ID2\\ counterexamples/#1.json -{}-planner #1\\ -{}-out figs/#1.pdf}}}}}}
+% \flawedblock{P<k>}{verdict}{principle}{guarantee line}: figure on the left, text on the right
+\newcommand{\flawedblock}[4]{%
+  \par\noindent\begin{minipage}[t]{0.48\textwidth}\vspace{0pt}\cefig{#1}\end{minipage}\hfill
+  \begin{minipage}[t]{0.49\textwidth}\vspace{0pt}\raggedright
+  \textbf{Verdict.} #2\par\smallskip
+  \textbf{Principle.} #3\par\smallskip
+  \textbf{Guarantee line.} #4
+  \end{minipage}\par\medskip}
+% \correctblock{note}: the verdict, with an optional one-sentence note
+\newcommand{\correctblock}[1]{\par\textbf{Verdict.} Correct (no counterexample file).\par\textbf{Note.} #1\par\medskip}
+
+\begin{document}
+
+\begin{center}
+{\large\bfseries HW1 report: Translational Motion Planning}\\[0.5ex]
+Student IDs: 000000000, 000000000\qquad
+Robot: $(0, 0)$, $(\ldots)$, $(\ldots)$ % python gen_hw1.py --ids ID1 ID2 --robot
+\end{center}
+
+\noindent\fbox{\begin{minipage}{\dimexpr\textwidth-2\fboxsep-2\fboxrule}
+\textbf{AI use} (at most five lines).
+(i)~Tools: \ldots\
+(ii)~Items we used them on: \ldots\
+(iii)~One thing a tool got wrong that we caught: \ldots{} (or ``none found'').
+\end{minipage}}
+
+\medskip
+%==============================================================================
+% Part B: one subsection per planner. Every subsection has two blocks; keep one.
+% \flawedblock: the verdict, the figure of the counterexample, the principle the planner
+% violates (one sentence: the fact from L2 that the flaw contradicts, stated as a property
+% that every correct planner must have, not as a description of the bug), and its guarantee
+% line (one sentence): a natural class of instances for your robot on which the planner is
+% correct, described by a property of the instance alone (obstacles, start, goal), as large
+% as you can make it; your own counterexample must lie outside it, and a class that contains
+% any instance on which the planner is wrong earns 0. Both as in answers.txt.
+% \correctblock: the verdict and an optional note; a correct planner earns its points by
+% having no counterexample file.
+%==============================================================================
+\section*{Part B: the eight planners}
+
+\subsection*{P1}
+\flawedblock{P1}
+  {Flawed. Counterexample \code{counterexamples/P1.json}, size \ldots{} (obstacles); \code{check\_ce.py}: COUNTEREXAMPLE (\ldots).}
+  {One sentence.}
+  {One sentence.}
+\correctblock{One sentence.}
+
+\subsection*{P2}
+\flawedblock{P2}
+  {Flawed. Counterexample \code{counterexamples/P2.json}, size \ldots{} (obstacles); \code{check\_ce.py}: COUNTEREXAMPLE (\ldots).}
+  {One sentence.}
+  {One sentence.}
+\correctblock{One sentence.}
+
+\subsection*{P3}
+\flawedblock{P3}
+  {Flawed. Counterexample \code{counterexamples/P3.json}, size \ldots{} (obstacles); \code{check\_ce.py}: COUNTEREXAMPLE (\ldots).}
+  {One sentence.}
+  {One sentence.}
+\correctblock{One sentence.}
+
+\subsection*{P4}
+\flawedblock{P4}
+  {Flawed. Counterexample \code{counterexamples/P4.json}, size \ldots{} (obstacles); \code{check\_ce.py}: COUNTEREXAMPLE (\ldots).}
+  {One sentence.}
+  {One sentence.}
+\correctblock{One sentence.}
+
+\subsection*{P5}
+\flawedblock{P5}
+  {Flawed. Counterexample \code{counterexamples/P5.json}, size \ldots{} (obstacles); \code{check\_ce.py}: COUNTEREXAMPLE (\ldots).}
+  {One sentence.}
+  {One sentence.}
+\correctblock{One sentence.}
+
+\subsection*{P6}
+\flawedblock{P6}
+  {Flawed. Counterexample \code{counterexamples/P6.json}, size \ldots{} (obstacles); \code{check\_ce.py}: COUNTEREXAMPLE (\ldots).}
+  {One sentence.}
+  {One sentence.}
+\correctblock{One sentence.}
+
+\subsection*{P7}
+\flawedblock{P7}
+  {Flawed. Counterexample \code{counterexamples/P7.json}, size \ldots{} (obstacles); \code{check\_ce.py}: COUNTEREXAMPLE (\ldots).}
+  {One sentence.}
+  {One sentence.}
+\correctblock{One sentence.}
+
+\subsection*{P8}
+\flawedblock{P8}
+  {Flawed. Counterexample \code{counterexamples/P8.json}, size \ldots{} (obstacles); \code{check\_ce.py}: COUNTEREXAMPLE (\ldots).}
+  {One sentence.}
+  {One sentence.}
+\correctblock{One sentence.}
+
+%==============================================================================
+% Part C: the dry question T1, in at most half a page, written without relying on the
+% kit's checker. answers.txt names its planner (T1.planner). Graded: 4 for the step and
+% why the planner's other stages agree with the referee, 4 for why the step changes
+% nothing on smaller instances, and 2 for the conclusion.
+% If you skip T1, write T1.planner: - in answers.txt (T1 then earns 0) and delete this
+% section's text.
+%==============================================================================
+\section*{Part C: a dry question}
+
+\subsection*{T1: nothing smaller works}
+\textbf{Planner.} P\ldots{} (as T1.planner in answers.txt): a planner we judged flawed whose
+counterexample file has two or more obstacles.
+
+\textbf{Proof.} The step where the planner departs from the referee is \ldots; its other stages
+agree with the referee, because \ldots{} On every instance with fewer obstacles than our
+counterexample this step changes nothing, because \ldots{} Hence no counterexample to this planner
+has fewer obstacles than ours, and our file, with \ldots{} obstacles, attains this bound.
+
+\end{document}
