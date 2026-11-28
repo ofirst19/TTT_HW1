@@ -48,15 +48,19 @@
 
 \begin{center}
 {\large\bfseries HW1 report: Translational Motion Planning}\\[0.5ex]
-Student IDs: 000000000, 000000000\qquad
-Robot: $(0, 0)$, $(\ldots)$, $(\ldots)$ % python gen_hw1.py --ids ID1 ID2 --robot
+Student IDs: 318906989, 323951285\qquad
+Robot: $(0, 0)$, $(0, 0.6)$, $(-0.7, 0)$ % python gen_hw1.py --ids ID1 ID2 --robot
 \end{center}
 
 \noindent\fbox{\begin{minipage}{\dimexpr\textwidth-2\fboxsep-2\fboxrule}
 \textbf{AI use} (at most five lines).
-(i)~Tools: \ldots\
-(ii)~Items we used them on: \ldots\
-(iii)~One thing a tool got wrong that we caught: \ldots{} (or ``none found'').
+(i)~Tools: ChatGPT.
+(ii)~Items we used them on: Understanding and analyzing the different motion planners.
+(iii)~One thing a tool got wrong that we caught: While checking our guarantee for P8,
+ChatGPT incorrectly claimed that overlapping C-obstacles
+necessarily prevent optimality. We identified that an
+optimal path may still exist if the additionally blocked
+area does not affect the shortest valid path.
 \end{minipage}}
 
 \medskip
@@ -76,59 +80,79 @@ Robot: $(0, 0)$, $(\ldots)$, $(\ldots)$ % python gen_hw1.py --ids ID1 ID2 --robo
 
 \subsection*{P1}
 \flawedblock{P1}
-  {Flawed. Counterexample \code{counterexamples/P1.json}, size \ldots{} (obstacles); \code{check\_ce.py}: COUNTEREXAMPLE (\ldots).}
-  {One sentence.}
-  {One sentence.}
-\correctblock{One sentence.}
+  {Flawed. Counterexample \code{counterexamples/P1.json},
+   size 1 (obstacle); \code{check\_ce.py}:
+   COUNTEREXAMPLE (invalid\_path).}
+  {For a translating robot, collision-free configurations must be determined by
+   expanding each obstacle using the reflected robot, rather than the original
+   robot.}
+  {The planner is correct whenever the straight segment from start to goal does
+   not pass through the interior of any true or incorrectly computed
+   C-obstacle.}
 
 \subsection*{P2}
-\flawedblock{P2}
-  {Flawed. Counterexample \code{counterexamples/P2.json}, size \ldots{} (obstacles); \code{check\_ce.py}: COUNTEREXAMPLE (\ldots).}
-  {One sentence.}
-  {One sentence.}
-\correctblock{One sentence.}
+\correctblock
+  {The planner correctly computes C-obstacles, constructs the visibility graph,
+   and finds a shortest path using Dijkstra's algorithm.}
 
 \subsection*{P3}
 \flawedblock{P3}
-  {Flawed. Counterexample \code{counterexamples/P3.json}, size \ldots{} (obstacles); \code{check\_ce.py}: COUNTEREXAMPLE (\ldots).}
-  {One sentence.}
-  {One sentence.}
-\correctblock{One sentence.}
+  {Flawed. Counterexample \code{counterexamples/P3.json},
+   size 1 (obstacle); \code{check\_ce.py}:
+   COUNTEREXAMPLE (suboptimal).}
+  {A visibility graph must allow a segment along a C-obstacle boundary whenever
+   the segment avoids the interior of every C-obstacle.}
+  {The planner is correct when the straight path from start to goal has strictly
+   positive clearance from every C-obstacle.}
 
 \subsection*{P4}
 \flawedblock{P4}
-  {Flawed. Counterexample \code{counterexamples/P4.json}, size \ldots{} (obstacles); \code{check\_ce.py}: COUNTEREXAMPLE (\ldots).}
-  {One sentence.}
-  {One sentence.}
-\correctblock{One sentence.}
+  {Flawed. Counterexample \code{counterexamples/P4.json},
+   size 2 (obstacles); \code{check\_ce.py}:
+   COUNTEREXAMPLE (suboptimal).}
+  {A placement is forbidden exactly when it lies in the interior of at least one
+   individual C-obstacle, so a shared boundary is traversable wherever it lies
+   in no such interior.}
+  {P4 is correct if the closed C-obstacles are pairwise disjoint, or if the
+   straight start-to-goal segment has positive clearance from every closed
+   C-obstacle.}
 
 \subsection*{P5}
 \flawedblock{P5}
-  {Flawed. Counterexample \code{counterexamples/P5.json}, size \ldots{} (obstacles); \code{check\_ce.py}: COUNTEREXAMPLE (\ldots).}
-  {One sentence.}
-  {One sentence.}
-\correctblock{One sentence.}
+  {Flawed. Counterexample \code{counterexamples/P5.json},
+   size 0 (obstacles); \code{check\_ce.py}:
+   COUNTEREXAMPLE (missed\_path).}
+  {A visibility graph must include a direct edge between start and goal whenever
+   the straight path is collision-free.}
+  {P5 is correct if the open start-to-goal segment meets a C-obstacle interior,
+   or if the segment is collision-free and contains a C-obstacle vertex strictly
+   between its endpoints.}
 
 \subsection*{P6}
-\flawedblock{P6}
-  {Flawed. Counterexample \code{counterexamples/P6.json}, size \ldots{} (obstacles); \code{check\_ce.py}: COUNTEREXAMPLE (\ldots).}
-  {One sentence.}
-  {One sentence.}
-\correctblock{One sentence.}
+\correctblock
+  {The planner correctly computes C-obstacles, constructs the visibility graph
+   with valid edges, and finds a shortest path using Dijkstra's algorithm with a
+   priority queue.}
 
 \subsection*{P7}
 \flawedblock{P7}
-  {Flawed. Counterexample \code{counterexamples/P7.json}, size \ldots{} (obstacles); \code{check\_ce.py}: COUNTEREXAMPLE (\ldots).}
-  {One sentence.}
-  {One sentence.}
-\correctblock{One sentence.}
+  {Flawed. Counterexample \code{counterexamples/P7.json},
+   size 1 (obstacle); \code{check\_ce.py}:
+   COUNTEREXAMPLE (invalid\_path).}
+  {A visibility graph must reject segments that pass through the interior of a
+   C-obstacle, even when they intersect its boundary only at vertices.}
+  {The planner is correct when the straight segment from start to goal has
+   strictly positive clearance from every C-obstacle.}
 
 \subsection*{P8}
 \flawedblock{P8}
-  {Flawed. Counterexample \code{counterexamples/P8.json}, size \ldots{} (obstacles); \code{check\_ce.py}: COUNTEREXAMPLE (\ldots).}
-  {One sentence.}
-  {One sentence.}
-\correctblock{One sentence.}
+  {Flawed. Counterexample \code{counterexamples/P8.json},
+   size 2 (obstacles); \code{check\_ce.py}:
+   COUNTEREXAMPLE (missed\_path).}
+  {A placement is forbidden exactly when it lies in the interior of at least one
+   original C-obstacle, and combining obstacles must preserve this set.}
+  {P8 is correct whenever the interiors of the original C-obstacles are pairwise
+   disjoint, because every overlap group then contains just one obstacle.}
 
 %==============================================================================
 % Part C: the dry question T1, in at most half a page, written without relying on the
@@ -138,15 +162,20 @@ Robot: $(0, 0)$, $(\ldots)$, $(\ldots)$ % python gen_hw1.py --ids ID1 ID2 --robo
 % If you skip T1, write T1.planner: - in answers.txt (T1 then earns 0) and delete this
 % section's text.
 %==============================================================================
+\clearpage
 \section*{Part C: a dry question}
-
 \subsection*{T1: nothing smaller works}
-\textbf{Planner.} P\ldots{} (as T1.planner in answers.txt): a planner we judged flawed whose
-counterexample file has two or more obstacles.
 
-\textbf{Proof.} The step where the planner departs from the referee is \ldots; its other stages
-agree with the referee, because \ldots{} On every instance with fewer obstacles than our
-counterexample this step changes nothing, because \ldots{} Hence no counterexample to this planner
-has fewer obstacles than ours, and our file, with \ldots{} obstacles, attains this bound.
+\textbf{Planner.} P8 (as T1.planner in answers.txt).
 
+\textbf{Proof.}
+We prove that no counterexample to P8 exists with fewer than two obstacles.
+
+P8 correctly computes each C-obstacle as the Minkowski sum of the obstacle and the reflected robot. It then constructs a visibility graph using the obstacle vertices, start, and goal, checks collision-free edges, and applies Dijkstra's algorithm to find the shortest path. By the visibility graph theorem, these steps produce an optimal path when the obstacle geometry is preserved.
+
+The planner's only flaw is in \texttt{solid\_blocks}, which replaces overlapping C-obstacles with the convex hull of their union, potentially blocking additional free space. When this modification does not occur, the planner follows the correct shortest-path algorithm.
+
+With zero obstacles, no merging occurs, and the straight path is optimal. With one obstacle, \texttt{solid\_blocks} returns the original C-obstacle unchanged. Therefore, the flaw cannot affect either case, and P8 is correct.
+
+Since our counterexample contains two obstacles and demonstrates incorrect behavior, while every smaller instance is handled correctly, two obstacles are necessary and sufficient. Hence, our counterexample is minimal.
 \end{document}

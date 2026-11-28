@@ -1,0 +1,306 @@
+{
+ "ids": [
+  "318906989",
+  "323951285"
+ ],
+ "kit_version": "2.4",
+ "robot": [
+  [
+   0.0,
+   0.0
+  ],
+  [
+   0.0,
+   0.6
+  ],
+  [
+   -0.7,
+   0.0
+  ]
+ ],
+ "planners": {
+  "P1": {
+   "claimed": "flawed",
+   "file": "counterexamples/P1.json",
+   "valid_instance": true,
+   "problems": [],
+   "verdict": "counterexample",
+   "kind": "invalid_path",
+   "size": 1,
+   "planner_answer": {
+    "path": [
+     [
+      4.0,
+      6.0
+     ],
+     [
+      5.3,
+      5.0
+     ],
+     [
+      6.0,
+      5.0
+     ],
+     [
+      8.0,
+      6.0
+     ]
+    ],
+    "cost": 4.576189924185463
+   },
+   "referee_answer": {
+    "path": [
+     [
+      4.0,
+      6.0
+     ],
+     [
+      6.0,
+      7.0
+     ],
+     [
+      6.7,
+      7.0
+     ],
+     [
+      8.0,
+      6.0
+     ]
+    ],
+    "cost": 4.576189924185463
+   },
+   "detail": "segment 2 of P1's path, from (5.3, 5) to (6, 5), has points in the interior of the C-obstacle of obstacle 0",
+   "digest": "56c3497786b6de747563927ca25d56e4e5706b8437c07da1dadedff9e2569f6f"
+  },
+  "P2": {
+   "claimed": "correct",
+   "file": null,
+   "valid_instance": null,
+   "problems": [],
+   "verdict": null,
+   "kind": null,
+   "size": null,
+   "planner_answer": null,
+   "referee_answer": null,
+   "detail": null,
+   "digest": null
+  },
+  "P3": {
+   "claimed": "flawed",
+   "file": "counterexamples/P3.json",
+   "valid_instance": true,
+   "problems": [],
+   "verdict": "counterexample",
+   "kind": "suboptimal",
+   "size": 1,
+   "planner_answer": {
+    "path": [
+     [
+      4.0,
+      6.0
+     ],
+     [
+      6.0,
+      4.4
+     ],
+     [
+      8.0,
+      6.0
+     ]
+    ],
+    "cost": 5.122499389946278
+   },
+   "referee_answer": {
+    "path": [
+     [
+      4.0,
+      6.0
+     ],
+     [
+      6.0,
+      7.0
+     ],
+     [
+      6.7,
+      7.0
+     ],
+     [
+      8.0,
+      6.0
+     ]
+    ],
+    "cost": 4.576189924185463
+   },
+   "detail": "P3's path has length 5.122499, longer than the optimum 4.576190 by 0.546",
+   "digest": "56c3497786b6de747563927ca25d56e4e5706b8437c07da1dadedff9e2569f6f"
+  },
+  "P4": {
+   "claimed": "flawed",
+   "file": "counterexamples/P4.json",
+   "valid_instance": true,
+   "problems": [],
+   "verdict": "counterexample",
+   "kind": "suboptimal",
+   "size": 2,
+   "planner_answer": {
+    "path": [
+     [
+      3.7,
+      1.0
+     ],
+     [
+      4.7,
+      1.4
+     ],
+     [
+      5.4,
+      2.0
+     ],
+     [
+      5.4,
+      3.0
+     ],
+     [
+      3.7,
+      4.0
+     ]
+    ],
+    "cost": 4.971295699487792
+   },
+   "referee_answer": {
+    "path": [
+     [
+      3.7,
+      1.0
+     ],
+     [
+      3.7,
+      4.0
+     ]
+    ],
+    "cost": 3.0
+   },
+   "detail": "P4's path has length 4.971296, longer than the optimum 3.000000 by 1.97",
+   "digest": "ecda0a3373c2100cb8d1c603b8a3b9aa5cd6aa0a228ba83c1791728c8f79bcf0"
+  },
+  "P5": {
+   "claimed": "flawed",
+   "file": "counterexamples/P5.json",
+   "valid_instance": true,
+   "problems": [],
+   "verdict": "counterexample",
+   "kind": "missed_path",
+   "size": 0,
+   "planner_answer": {
+    "path": null,
+    "cost": "inf"
+   },
+   "referee_answer": {
+    "path": [
+     [
+      3.7,
+      1.0
+     ],
+     [
+      3.7,
+      4.0
+     ]
+    ],
+    "cost": 3.0
+   },
+   "detail": "P5 returns no path, but a path of cost 3.000000 exists",
+   "digest": "a872ccece93e72472de7bd3cd8ac3df0c8386e89160aebc9e0e0b407161b76b0"
+  },
+  "P6": {
+   "claimed": "correct",
+   "file": null,
+   "valid_instance": null,
+   "problems": [],
+   "verdict": null,
+   "kind": null,
+   "size": null,
+   "planner_answer": null,
+   "referee_answer": null,
+   "detail": null,
+   "digest": null
+  },
+  "P7": {
+   "claimed": "flawed",
+   "file": "counterexamples/P7.json",
+   "valid_instance": true,
+   "problems": [],
+   "verdict": "counterexample",
+   "kind": "invalid_path",
+   "size": 1,
+   "planner_answer": {
+    "path": [
+     [
+      3.0,
+      4.0
+     ],
+     [
+      5.0,
+      4.4
+     ],
+     [
+      7.7,
+      7.0
+     ],
+     [
+      9.05,
+      8.3
+     ]
+    ],
+    "cost": 7.662107249634508
+   },
+   "referee_answer": {
+    "path": [
+     [
+      3.0,
+      4.0
+     ],
+     [
+      5.0,
+      7.0
+     ],
+     [
+      9.05,
+      8.3
+     ]
+    ],
+    "cost": 7.859079222944763
+   },
+   "detail": "segment 2 of P7's path, from (5, 4.4) to (7.7, 7), has points in the interior of the C-obstacle of obstacle 0",
+   "digest": "7d447fd643ded18483e24efe2edc2830bc164dadd304824f5898c57fc03a2dfa"
+  },
+  "P8": {
+   "claimed": "flawed",
+   "file": "counterexamples/P8.json",
+   "valid_instance": true,
+   "problems": [],
+   "verdict": "counterexample",
+   "kind": "missed_path",
+   "size": 2,
+   "planner_answer": {
+    "path": null,
+    "cost": "inf"
+   },
+   "referee_answer": {
+    "path": [
+     [
+      3.0,
+      3.5
+     ],
+     [
+      3.0,
+      5.0
+     ]
+    ],
+    "cost": 1.5
+   },
+   "detail": "P8 returns no path, but a path of cost 1.500000 exists",
+   "digest": "9021c12b8d89874a34b1e1bbf4e79b291fd21ac90fff1dc3d31f4856b1138485"
+  }
+ },
+ "errors": []
+}
