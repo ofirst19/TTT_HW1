@@ -23,21 +23,21 @@
 # can raise or lower it. check_submission.py checks this file; a zip that fails it is not
 # graded (0 points).
 
-P1.principle: - For a translating robot, collision-free configurations must be determined by expanding each obstacle using the reflected robot, rather than the original robot.
-P1.guarantee: -The planner is correct whenever the straight segment from start to goal does not pass through the interior of any true or incorrectly computed C-obstacle.
+P1.principle: For a translating robot, collision-free configurations must be determined by expanding each obstacle using the reflected robot, rather than the original robot.
+P1.guarantee: The planner is correct whenever the straight segment from start to goal does not pass through the interior of any true or incorrectly computed C-obstacle.
 P2.principle: -
 P2.guarantee: -
-P3.principle: - A visibility graph must include all collision-free straight segments between relevant vertices, including segments that follow obstacle boundaries.
-P3.guarantee: - The planner is correct when straight path is collision-free and does not contain any segment that lies entirely along an obstacle boundary.
-P4.principle: - A visibility graph must include the intersection points of overlapping C-obstacle boundaries to guarantee a shortest path.
-P4.guarantee: - The planner is correct when the shortest path does not pass through any overlapping C-obstacles.
-P5.principle: - A visibility graph must include a direct edge between start and goal whenever the straight path is collision-free.
-P5.guarantee: - The planner is correct when the shortest path requires at least one intermediate C-obstacle vertex.
+P3.principle: A visibility graph must allow a segment along a C-obstacle boundary whenever the segment avoids the interior of every C-obstacle.
+P3.guarantee: The planner is correct when the straight path from start to goal has strictly positive clearance from every C-obstacle.
+P4.principle: A placement is forbidden exactly when it lies in the interior of at least one individual C-obstacle, so a shared boundary is traversable wherever it lies in no such interior.
+P4.guarantee: P4 is correct if the closed C-obstacles are pairwise disjoint, or if the straight start-to-goal segment has positive clearance from every closed C-obstacle.
+P5.principle: A visibility graph must include a direct edge between start and goal whenever the straight path is collision-free.
+P5.guarantee: P5 is correct if the open start-to-goal segment meets a C-obstacle interior, or if the segment is collision-free and contains a C-obstacle vertex strictly between its endpoints.
 P6.principle: -
 P6.guarantee: -
-P7.principle: - A visibility graph must reject segments that pass through the interior of a C-obstacle, even when they intersect its boundary only at vertices.
-P7.guarantee: - The planner is correct when the straight segment from start to goal has strictly positive clearance from every C-obstacle.
-P8.principle: - Overlapping C-obstacles must be combined correctly without blocking any additional free space.
-P8.guarantee: - The planner is correct when the shortest valid path does not intersect any additional area created by merging overlapping C-obstacles into their convex hull.
+P7.principle: A visibility graph must reject segments that pass through the interior of a C-obstacle, even when they intersect its boundary only at vertices.
+P7.guarantee: The planner is correct when the straight segment from start to goal has strictly positive clearance from every C-obstacle.
+P8.principle: A placement is forbidden exactly when it lies in the interior of at least one original C-obstacle, and combining obstacles must preserve this set.
+P8.guarantee: P8 is correct whenever the interiors of the original C-obstacles are pairwise disjoint, because every overlap group then contains just one obstacle.
 
 T1.planner: P8
